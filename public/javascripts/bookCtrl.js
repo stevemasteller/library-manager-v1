@@ -11,6 +11,18 @@ angular.module('app').controller('bookCtrl', function(dataServiceBooks, $locatio
 		});
 	}
 	
+	if ($location.$$path === '/overdue_books.html') {
+		dataServiceBooks.getOverdueBooks(function(res) {
+			vm.getOverdueBooks = res.data;
+		});
+	}
+	
+	if ($location.$$path === '/checked_books.html') {
+		dataServiceBooks.getCheckedBooks(function(res) {
+			vm.getCheckedBooks = res.data;
+		});
+	}
+	
 });
 
 })();

@@ -20,6 +20,16 @@
          controllerAs: 'vm',
          templateUrl: 'views/all_books.html'
        })
+       .when('/overdue_books.html', {
+         controller: 'bookCtrl',
+         controllerAs: 'vm',
+         templateUrl: 'views/overdue_books.html'
+       })
+       .when('/checked_books.html', {
+         controller: 'bookCtrl',
+         controllerAs: 'vm',
+         templateUrl: 'views/checked_books.html'
+       })
        .when('/all_patrons.html', {
          controller: 'patronCtrl',
          controllerAs: 'vm',

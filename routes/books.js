@@ -18,4 +18,34 @@ router.get('/allBooks', function(req, res, next) {
 	});
 });
 
+/** Get overdue books */
+router.get('/overdueBooks', function(req, res, next) {
+	loans.findAll({
+		include: [{ model: books }],
+		where: { return_by: { $lt: new Date() }, returned_on: null },
+		order: [[{model: books}, "title", "ASC"]]
+	})
+	.then( function(books) {
+		res.json(books);
+	})
+	.catch(function(error) {
+		res.status(500).send(error);
+	});
+});
+
+/** Get checked books */
+router.get('/checkedBooks', function(req, res, next) {
+	loans.findAll({
+		include: [{ model: books }],
+		where: { returned_on: null },
+		order: [[{model: books}, "title", "ASC"]]
+	})
+	.then( function(books) {
+		res.json(books);
+	})
+	.catch(function(error) {
+		res.status(500).send(error);
+	});
+});
+
 module.exports = router;
