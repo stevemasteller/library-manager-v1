@@ -28,11 +28,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat = "book in vm.getOverdueBooks">
-                <td><a href="book_detail.html">{{book.title}}</a></td>
-                <td>{{book.author}}</td>
-                <td>{{book.genre}}</td>
-                <td>{{book.first_published}}</td>
+            <tr ng-repeat = "loan in vm.getOverdueBooks">
+                <td><a href="book_detail.html">{{loan.book.title}}</a></td>
+                <td>{{loan.book.author}}</td>
+                <td>{{loan.book.genre}}</td>
+                <td>{{loan.book.first_published}}</td>
             </tr>
         </tbody>
     </table>
