@@ -1,24 +1,6 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="app">
 
-<head>
-
-  <meta charset="utf-8">
-
-  <title>Library Manager</title>
-
-  <link rel="stylesheet" href="stylesheets/style.css">
-
-</head>
-
-<!-- TODO Add a directive to the body element in order to 
-  bootstrap your Angular app. Be sure to use the name 'app' 
-  so that the provided Angular routes function properly. -->
-<body ng-app="app">
-
-        <!-- The ng-view Angular directive is used to tell the Angular router
-              where requested views should be loaded. Removing this directive 
-              will cause routing to not function properly. -->
         <div ng-view></div>
 
   <script src="vendor/angular.js"></script>

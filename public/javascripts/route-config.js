@@ -2,14 +2,7 @@
 (function() {
   'use strict';
 
-  // The Angular $routeProvider is used to configure routes for your application.
-  
-  // Three routes are configured below:
-  // 1) The root of the application "/" which serves up the "Recipes" view.
-  // 2) The recipe edit route "/edit/:id" which serves up the "Recipe Detail" view.
-  // 3) The recipe add route "/add" which also serves up the "Recipe Detail" view.
-
-  // TODO Uncomment this code after you've configured the `app` module.
+  // The Angular $routeProvider is used to configure routes for the application.
   
    angular
      .module('app')
@@ -21,6 +14,21 @@
          controller: '',
          controllerAs: '',
          templateUrl: 'views/home.html'
+       })
+       .when('/all_books.html', {
+         controller: '',
+         controllerAs: '',
+         templateUrl: 'views/all_books.html'
+       })
+       .when('/all_patrons.html', {
+         controller: '',
+         controllerAs: '',
+         templateUrl: 'views/all_patrons.html'
+       })
+       .when('/all_loans.html', {
+         controller: '',
+         controllerAs: '',
+         templateUrl: 'views/all_loans.html'
        })
        .otherwise({
          redirectTo: '/'
