@@ -30,6 +30,11 @@
          controllerAs: 'vm',
          templateUrl: 'views/checked_books.html'
        })
+       .when('/new_book.html', {
+         controller: 'bookCtrl',
+         controllerAs: 'vm',
+         templateUrl: 'views/new_book.html'
+       })
        .when('/all_patrons.html', {
          controller: 'patronCtrl',
          controllerAs: 'vm',

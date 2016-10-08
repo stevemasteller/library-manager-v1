@@ -23,6 +23,19 @@ angular.module('app').controller('bookCtrl', function(dataServiceBooks, $locatio
 		});
 	}
 	
+	vm.newBook = {};
+	vm.postNewBook = function() {
+		console.log('bookCtrl reached');
+		dataServiceBooks.postNewBook(vm.newBook, function(res) {
+			vm.success = true;
+			vm.failure = false;
+		}, function(error) {
+			vm.success = false;
+			vm.failure = true;
+			vm.errorMessages = error.data.errors;
+		});
+	};
+	  
 });
 
 })();
