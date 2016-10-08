@@ -16,18 +16,18 @@
          templateUrl: 'views/home.html'
        })
        .when('/all_books.html', {
-         controller: '',
-         controllerAs: '',
+         controller: 'bookCtrl',
+         controllerAs: 'vm',
          templateUrl: 'views/all_books.html'
        })
        .when('/all_patrons.html', {
-         controller: '',
-         controllerAs: '',
+         controller: 'patronCtrl',
+         controllerAs: 'vm',
          templateUrl: 'views/all_patrons.html'
        })
        .when('/all_loans.html', {
-         controller: '',
-         controllerAs: '',
+         controller: 'loanCtrl',
+         controllerAs: 'vm',
          templateUrl: 'views/all_loans.html'
        })
        .otherwise({

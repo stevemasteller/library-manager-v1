@@ -27,29 +27,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td><a href="book_detail.html">Emma</a></td>
-                <td>Jane Austen</td>
-                <td>Classic</td>
-                <td>1815</td>
-            </tr>
-            <tr>
-                <td><a href="book_detail.html">Harry Potter and the Goblet of Fire</a></td>
-                <td>J.K. Rowling</td>
-                <td>Fantasy</td>
-                <td>2000</td>
-            </tr>
-            <tr>
-                <td><a href="book_detail.html">A Brief History of Time</a></td>
-                <td>Stephen Hawking</td>
-                <td>Non Fiction</td>
-                <td>1988</td>
-            </tr>
-            <tr>
-                <td><a href="book_detail.html">The Universe in a Nutshell</a></td>
-                <td>Stephen Hawking</td>
-                <td>Non Fiction</td>
-                <td>2001</td>
+            <tr ng-repeat = "loan in vm.getCheckedBooks">
+                <td><a href="book_detail.html">{{loan.book.title}}</a></td>
+                <td>{{loan.book.author}}</td>
+                <td>{{loan.book.genre}}</td>
+                <td>{{loan.book.first_published}}</td>
             </tr>
         </tbody>
     </table>
