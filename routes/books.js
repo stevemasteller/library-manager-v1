@@ -73,4 +73,21 @@ router.get('/bookDetail/:id', function(req, res, next) {
 	});
 });
 
+router.put('/bookDetail/:id', function(req, res, next) {
+	books.findById(req.params.id)
+	.then(function(book){
+		if(book) {
+			return book.update(req.body);
+		} else {
+			res.status(404).send(error);
+		}
+	})
+	.then(function (book) {
+		res.json(book);
+	})
+	.catch(function(error){
+		res.send(500, error);
+	});
+});
+
 module.exports = router;

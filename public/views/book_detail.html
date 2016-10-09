@@ -21,8 +21,10 @@
         <p><label for="author">Author</label><input id="author" type="text" value="{{book.author}}" ng-model="vm.book.author"></p>
         <p><label for="genre">Genre</label><input id="genre" type="text" value="{{book.genre}}" ng-model="vm.book.genre"></p>
         <p><label for="first_published">First Published</label><input id="first_published" type="text" value="{{book.first_published}}" ng-model="vm.book.first_published"></p>
-        <p><input type="submit" value="Update"></p>
+        <p><input type="submit" value="Update" ng-click="vm.putBookDetail()"></p>
     </form>
+	<p ng-if="vm.success">Success</p>
+	<p ng-if="vm.failure" ng-repeat="error in vm.errorMessages">{{error.message}}</p>
     <h2>Loan History</h2>
     <table>
         <thead>

@@ -25,7 +25,6 @@ angular.module('app').controller('bookCtrl', function(dataServiceBooks, $locatio
 	
 	vm.newBook = {};
 	vm.postNewBook = function() {
-		console.log('bookCtrl reached');
 		dataServiceBooks.postNewBook(vm.newBook, function(res) {
 			vm.success = true;
 			vm.failure = false;
@@ -38,13 +37,23 @@ angular.module('app').controller('bookCtrl', function(dataServiceBooks, $locatio
 	 	
     vm.id = $routeParams.id;
 	if ($location.$$path === ('/book_detail.html/' + vm.id)) {
-		console.log('bookCtrl');
 		dataServiceBooks.getBookDetail(vm.id, function(res) {
 			vm.book = res.data[0];
-			console.log(vm.getBookDetail);
 		});
 	}
 	  
+	vm.putBookDetail = function() {
+		console.log('bookCtrl');
+		dataServiceBooks.putBookDetail(vm.id, vm.book, function(response) {
+			vm.success = true;
+			vm.failure = false;
+		}, function(error) {
+			vm.success = false;
+			vm.failure = true;
+			vm.errorMessages = error.data.errors
+		});
+	};
+
 });
 
 })();

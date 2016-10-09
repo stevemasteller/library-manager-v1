@@ -10,6 +10,18 @@ angular.module('app').controller('loanCtrl', function(dataServiceLoans, $locatio
 		});
 	}
 	
+	if ($location.$$path === '/overdue_loans.html') {
+		dataServiceLoans.getOverdueLoans(function(res) {
+			vm.getOverdueLoans = res.data;
+		});
+	}
+	
+	if ($location.$$path === '/checked_loans.html') {
+		dataServiceLoans.getCheckedLoans(function(res) {
+			vm.getCheckedLoans = res.data;
+		});
+	}
+	
 });
 
 })();

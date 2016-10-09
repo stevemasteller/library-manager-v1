@@ -16,15 +16,18 @@ angular.module('app').service('dataServiceBooks', function($http) {
 		$http.get('/api/books/checkedBooks').then(callback);
 	};
 	
-	vm.postNewBook = function(book, callback, error) {
-		$http.post('/api/books/newBook', book).then(callback, error);
+	vm.postNewBook = function(book, callback, err) {
+		$http.post('/api/books/newBook', book).then(callback, err);
 	};
 
 	vm.getBookDetail = function(id, callback) {
 		$http.get('/api/books/bookDetail/' + id).then(callback);
-		console.log(callback);
 	};
 	 
+	vm.putBookDetail = function(id, data, callback, err) {
+		$http.put('/api/books/bookDetail/' + id, data).then(callback, err);
+		console.log(callback);
+     };
 });
 
 })();
