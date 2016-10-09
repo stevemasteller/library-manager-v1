@@ -1,7 +1,7 @@
 (function() {
 'use strict';
 
-angular.module('app').controller('bookCtrl', function(dataServiceBooks, $location) {
+angular.module('app').controller('bookCtrl', function(dataServiceBooks, $location, $routeParams) {
 	
 	var vm = this;
 	
@@ -35,6 +35,15 @@ angular.module('app').controller('bookCtrl', function(dataServiceBooks, $locatio
 			vm.errorMessages = error.data.errors;
 		});
 	};
+	 	
+    vm.id = $routeParams.id;
+	if ($location.$$path === ('/book_detail.html/' + vm.id)) {
+		console.log('bookCtrl');
+		dataServiceBooks.getBookDetail(vm.id, function(res) {
+			vm.book = res.data[0];
+			console.log(vm.getBookDetail);
+		});
+	}
 	  
 });
 

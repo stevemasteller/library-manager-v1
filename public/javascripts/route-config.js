@@ -35,6 +35,11 @@
          controllerAs: 'vm',
          templateUrl: 'views/new_book.html'
        })
+       .when('/book_detail.html/:id', {
+         controller: 'bookCtrl',
+         controllerAs: 'vm',
+         templateUrl: 'views/book_detail.html'
+       })
        .when('/all_patrons.html', {
          controller: 'patronCtrl',
          controllerAs: 'vm',

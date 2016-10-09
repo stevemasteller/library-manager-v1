@@ -60,4 +60,17 @@ router.post('/newBook', function(req, res, next) {
 	});
 });
 
+router.get('/bookDetail/:id', function(req, res, next) {
+	books.findAll({ 
+		include: [{ model: loans, 
+			include: [{ model: patrons }] }], 
+		where: { id: req.params.id }})
+	.then(function(book){
+		res.json(book);
+	})
+	.catch(function(error){
+		res.status(500).send(error);
+	});
+});
+
 module.exports = router;

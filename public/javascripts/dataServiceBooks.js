@@ -17,10 +17,14 @@ angular.module('app').service('dataServiceBooks', function($http) {
 	};
 	
 	vm.postNewBook = function(book, callback, error) {
-		console.log('serviceBooks');
 		$http.post('/api/books/newBook', book).then(callback, error);
 	};
 
+	vm.getBookDetail = function(id, callback) {
+		$http.get('/api/books/bookDetail/' + id).then(callback);
+		console.log(callback);
+	};
+	 
 });
 
 })();
