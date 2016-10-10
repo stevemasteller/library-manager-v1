@@ -60,10 +60,12 @@ angular.module('app').controller('loanCtrl', function(dataServiceLoans, dataServ
 		return year + '-' + month + '-' + day;
 	}
 
+	vm.loan = {};
 	vm.date = getDate();
 	vm.returnDate = getReturnDate();
-	vm.loan = {};
+		
 	vm.postNewLoan = function() {
+		
 		dataServiceLoans.postNewLoan(vm.loan, function(response) {
 			vm.success = true;
 			vm.failure = false;
@@ -76,8 +78,11 @@ angular.module('app').controller('loanCtrl', function(dataServiceLoans, dataServ
 	  
     vm.id = $routeParams.id;
 	if ($location.$$path === '/return_book.html/' + vm.id) {
+		console.log(vm.loan);
+		
 		dataServiceLoans.getReturnBook(vm.id, function(res) {
 			vm.loan = res.data[0];
+			vm.loan.returned_on = getDate();
 		});
 	}
 	

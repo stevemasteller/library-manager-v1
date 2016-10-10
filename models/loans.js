@@ -33,6 +33,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     returned_on: {
       type: DataTypes.DATEONLY,
+	  allowNull: true,
       validate: {
         isDate: {
           msg: "You must use a valid date of the format YYYY-MM-DD"
