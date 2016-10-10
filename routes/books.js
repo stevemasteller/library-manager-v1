@@ -1,3 +1,6 @@
+(function() {
+'use strict';
+
 var express = require('express');
 var router  = express.Router();
 
@@ -61,9 +64,9 @@ router.post('/newBook', function(req, res, next) {
 
 router.get('/bookDetail/:id', function(req, res, next) {
 	books.findAll({ 
-		include: [{ model: loans, 
-			include: [{ model: patrons }] }], 
-		where: { id: req.params.id }})
+		include: [{ model: loans, include: [{ model: patrons }] }], 
+		where: { id: req.params.id }
+	})
 	.then(function(book){
 		res.json(book);
 	})
@@ -90,3 +93,5 @@ router.put('/bookDetail/:id', function(req, res, next) {
 });
 
 module.exports = router;
+
+})();

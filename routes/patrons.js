@@ -1,3 +1,6 @@
+(function() {
+'use strict';
+
 var express = require('express');
 var router  = express.Router();
 
@@ -19,3 +22,5 @@ router.get('/allPatrons', function(req, res, next) {
 });
 
 module.exports = router;
+
+})();

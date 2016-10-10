@@ -1,3 +1,5 @@
+(function() {
+'use strict';
 
 var express = require('express');
 var router  = express.Router();
@@ -62,5 +64,20 @@ router.post('/newLoan', function(req, res, next) {
 	});
 });
 
+/* Get loan based on loan id */
+router.get('/returnBook/:id', function(req, res, next) {
+	loans.findAll({
+		include: [{ model: books }, { model: patrons }],
+		where: { id: req.params.id }
+	})
+	.then(function(loans) {
+		res.json(loans);
+	})
+	.catch(function(error){
+		res.status(500).send(error);
+   });
+});
+
 module.exports = router;
 
+})();

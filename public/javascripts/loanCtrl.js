@@ -1,7 +1,7 @@
 (function() {
 'use strict';
 
-angular.module('app').controller('loanCtrl', function(dataServiceLoans, dataServiceBooks, dataServicePatrons, $location) {
+angular.module('app').controller('loanCtrl', function(dataServiceLoans, dataServiceBooks, dataServicePatrons, $location, $routeParams) {
 	
 	var vm = this;
 	if ($location.$$path === '/all_loans.html') {
@@ -74,6 +74,13 @@ angular.module('app').controller('loanCtrl', function(dataServiceLoans, dataServ
 		});
 	};
 	  
+    vm.id = $routeParams.id;
+	if ($location.$$path === '/return_book.html/' + vm.id) {
+		dataServiceLoans.getReturnBook(vm.id, function(res) {
+			vm.loan = res.data[0];
+		});
+	}
+	
 });
 
 })();

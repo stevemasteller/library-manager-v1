@@ -40,11 +40,6 @@
          controllerAs: 'vm',
          templateUrl: 'views/book_detail.html'
        })
-       .when('/all_patrons.html', {
-         controller: 'patronCtrl',
-         controllerAs: 'vm',
-         templateUrl: 'views/all_patrons.html'
-       })
        .when('/all_loans.html', {
          controller: 'loanCtrl',
          controllerAs: 'vm',
@@ -64,6 +59,16 @@
          controller: 'loanCtrl',
          controllerAs: 'vm',
          templateUrl: 'views/new_loan.html'
+       })
+       .when('/return_book.html/:id', {
+         controller: 'loanCtrl',
+         controllerAs: 'vm',
+         templateUrl: 'views/return_book.html'
+       })
+       .when('/all_patrons.html', {
+         controller: 'patronCtrl',
+         controllerAs: 'vm',
+         templateUrl: 'views/all_patrons.html'
        })
        .otherwise({
          redirectTo: '/'
