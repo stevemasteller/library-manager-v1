@@ -7,19 +7,28 @@ angular.module('app').controller('bookCtrl', function(dataServiceBooks, $locatio
 	
 	if ($location.$$path === '/all_books.html') {
 		dataServiceBooks.getAllBooks(function(res) {
-			vm.getAllBooks = res.data;
+			
+			var books = res.data;
+			var loans = res.data;
+			for (var i = 0; i < books.length; i++) {
+				loans[i].book = books[i];
+			}
+			vm.loans = loans;
+			vm.title = 'Books';
 		});
 	}
 	
 	if ($location.$$path === '/overdue_books.html') {
 		dataServiceBooks.getOverdueBooks(function(res) {
-			vm.getOverdueBooks = res.data;
+			vm.loans = res.data;
+			vm.title = 'Overdue Books';
 		});
 	}
 	
 	if ($location.$$path === '/checked_books.html') {
 		dataServiceBooks.getCheckedBooks(function(res) {
-			vm.getCheckedBooks = res.data;
+			vm.loans = res.data;
+			vm.title = 'Checked Out Books';
 		});
 	}
 	

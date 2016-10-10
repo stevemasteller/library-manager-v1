@@ -18,17 +18,17 @@
        .when('/all_books.html', {
          controller: 'bookCtrl',
          controllerAs: 'vm',
-         templateUrl: 'views/all_books.html'
+         templateUrl: 'views/books.html'
        })
        .when('/overdue_books.html', {
          controller: 'bookCtrl',
          controllerAs: 'vm',
-         templateUrl: 'views/overdue_books.html'
+         templateUrl: 'views/books.html'
        })
        .when('/checked_books.html', {
          controller: 'bookCtrl',
          controllerAs: 'vm',
-         templateUrl: 'views/checked_books.html'
+         templateUrl: 'views/books.html'
        })
        .when('/new_book.html', {
          controller: 'bookCtrl',

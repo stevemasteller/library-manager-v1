@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>Checked Out Books</title>
-    <link rel="stylesheet" href="stylesheets/style.css">
-</head>
-<div ng-include="'views/partials/nav.html'"></div>
-
-<body>
-    <h1>Checked Out Books</h1>
-	<div ng-include="'views/partials/nav_books.html'"></div>
     <table>
         <thead>
             <tr>
@@ -20,7 +8,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat = "loan in vm.getCheckedBooks">
+            <tr ng-repeat = "loan in vm.loans">
                 <td><a href="#/book_detail.html/{{loan.book.id}}">{{loan.book.title}}</a></td>
                 <td>{{loan.book.author}}</td>
                 <td>{{loan.book.genre}}</td>
@@ -28,6 +16,3 @@
             </tr>
         </tbody>
     </table>
-</body>
-
-</html>
