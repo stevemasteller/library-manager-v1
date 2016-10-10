@@ -2,20 +2,13 @@
 <html>
 
 <head>
-    <title>Checked Out Books</title>
+    <title>Checked Out Loans</title>
     <link rel="stylesheet" href="stylesheets/style.css">
 </head>
-<nav>
-    <ul>
-		<li><a href="#/">Home</a></li>
-        <li><a href="#/all_books.html">Books</a></li>
-        <li><a href="#/all_patrons.html">Patrons</a></li>
-        <li><a href="#/all_loans.html">Loans</a></li>
-    </ul>
-</nav>
+<div ng-include="'views/partials/nav.html'"></div>
 
 <body>
-    <h1>Checked Out Books</h1>
+    <h1>Checked Out Loans</h1>
     <p> <a href="#/new_loan.html" class="button">Create New Loan</a></p>
     <p>Filters <a href="#/all_loans.html">All</a> | <a href="#/overdue_loans.html">Overdue</a> | <a href="#/checked_loans.html">Checked Out</a></p>
     <table>

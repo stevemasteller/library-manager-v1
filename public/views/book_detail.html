@@ -5,14 +5,7 @@
     <title>{{vm.book.title}}</title>
     <link rel="stylesheet" href="stylesheets/style.css">
 </head>
-<nav>
-    <ul>
-		<li><a href="#/">Home</a></li>
-        <li><a href="#/all_books.html">Books</a></li>
-        <li><a href="#/all_patrons.html">Patrons</a></li>
-        <li><a href="#/all_loans.html">Loans</a></li>
-    </ul>
-</nav>
+<div ng-include="'views/partials/nav.html'"></div>
 
 <body>
     <h1>{{vm.book.title}}</h1>
