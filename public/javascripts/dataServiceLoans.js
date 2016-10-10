@@ -8,6 +8,10 @@ angular.module('app').service('dataServiceLoans', function($http) {
 		$http.get('/api/loans/allLoans').then(callback);
 	}
 	
+	vm.postNewLoan = function(loan, callback, err) {
+		$http.post('/api/loans/newLoan', loan).then(callback, err);
+	}
+	
 });
 
 })();

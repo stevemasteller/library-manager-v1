@@ -60,6 +60,11 @@
          controllerAs: 'vm',
          templateUrl: 'views/checked_loans.html'
        })
+       .when('/new_loan.html', {
+         controller: 'loanCtrl',
+         controllerAs: 'vm',
+         templateUrl: 'views/new_loan.html'
+       })
        .otherwise({
          redirectTo: '/'
        });

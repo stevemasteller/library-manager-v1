@@ -50,7 +50,6 @@ router.get('/checkedBooks', function(req, res, next) {
 
 /** Post new book */
 router.post('/newBook', function(req, res, next) {
-	console.log('Reached router');
 	books.create(req.body)
 	.then(function (book) {
 		res.json(book);

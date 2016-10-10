@@ -1,3 +1,4 @@
+
 var express = require('express');
 var router  = express.Router();
 
@@ -50,4 +51,16 @@ router.get('/checkedLoans', function(req, res, next) {
 	});
 });
 
+/** Post new loan */
+router.post('/newLoan', function(req, res, next) {
+	loans.create(req.body)
+	.then(function (loan) {
+		res.json(loan);
+	})
+	.catch(function(error){
+		res.status(500).send(error);
+	});
+});
+
 module.exports = router;
+
