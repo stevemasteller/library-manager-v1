@@ -78,7 +78,6 @@ angular.module('app').controller('loanCtrl', function(dataServiceLoans, dataServ
 	  
     vm.id = $routeParams.id;
 	if ($location.$$path === '/return_book.html/' + vm.id) {
-		console.log(vm.loan);
 		
 		dataServiceLoans.getReturnBook(vm.id, function(res) {
 			vm.loan = res.data[0];
@@ -86,6 +85,18 @@ angular.module('app').controller('loanCtrl', function(dataServiceLoans, dataServ
 		});
 	}
 	
+	vm.putReturnBook = function() {
+
+		dataServiceLoans.putReturnBook(vm.id, vm.loan, function(response) {
+			vm.success = true;
+			vm.failure = false;
+		}, function(error) {
+			vm.success = false;
+			vm.failure = true;
+			vm.errorMessages = error.data.errors
+		});
+	};
+
 });
 
 })();

@@ -78,6 +78,24 @@ router.get('/returnBook/:id', function(req, res, next) {
    });
 });
 
+/* put loan based on loan id*/
+router.put('/returnBook/:id', function(req, res, next) {
+	loans.findById(req.params.id)
+	.then(function(loan){
+		if(loan) {
+			return loan.update(req.body);
+		} else {
+			res.status(404).send(error);
+		}
+	})
+	.then(function (loan) {
+		res.json(loan);
+	})
+	.catch(function(error){
+		res.status(500).send(error);
+	});
+});
+
 module.exports = router;
 
 })();

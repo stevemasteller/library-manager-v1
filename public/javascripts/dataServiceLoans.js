@@ -13,9 +13,12 @@ angular.module('app').service('dataServiceLoans', function($http) {
 	}
 	
 	vm.getReturnBook = function(id, callback) {
-		$http.get('/api/loans/ReturnBook/' + id).then(callback);
+		$http.get('/api/loans/returnBook/' + id).then(callback);
 	}
 	
+	vm.putReturnBook = function(id, loan, callback, err) {
+		$http.put('/api/loans/returnBook/' + id, loan).then(callback, err);
+     };
 });
 
 })();
