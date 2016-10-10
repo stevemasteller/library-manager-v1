@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>{{book.title}}</title>
+    <title>{{vm.book.title}}</title>
     <link rel="stylesheet" href="stylesheets/style.css">
 </head>
 <nav>
@@ -15,12 +15,12 @@
 </nav>
 
 <body>
-    <h1>{{book.title}}</h1>
+    <h1>{{vm.book.title}}</h1>
     <form>
-        <p> <label for="title">Title</label><input id="title" type="text" value="{{book.title}}" ng-model="vm.book.title"></p>
-        <p><label for="author">Author</label><input id="author" type="text" value="{{book.author}}" ng-model="vm.book.author"></p>
-        <p><label for="genre">Genre</label><input id="genre" type="text" value="{{book.genre}}" ng-model="vm.book.genre"></p>
-        <p><label for="first_published">First Published</label><input id="first_published" type="text" value="{{book.first_published}}" ng-model="vm.book.first_published"></p>
+        <p> <label for="title">Title</label><input id="title" type="text" ng-model="vm.book.title"></p>
+        <p><label for="author">Author</label><input id="author" type="text" ng-model="vm.book.author"></p>
+        <p><label for="genre">Genre</label><input id="genre" type="text" ng-model="vm.book.genre"></p>
+        <p><label for="first_published">First Published</label><input id="first_published" type="text"ng-model="vm.book.first_published"></p>
         <p><input type="submit" value="Update" ng-click="vm.putBookDetail()"></p>
     </form>
 	<p ng-if="vm.success">Success</p>

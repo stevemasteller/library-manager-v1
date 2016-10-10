@@ -37,6 +37,7 @@ angular.module('app').controller('bookCtrl', function(dataServiceBooks, $locatio
 	 	
     vm.id = $routeParams.id;
 	if ($location.$$path === ('/book_detail.html/' + vm.id)) {
+		vm.book = {};
 		dataServiceBooks.getBookDetail(vm.id, function(res) {
 			vm.book = res.data[0];
 		});
