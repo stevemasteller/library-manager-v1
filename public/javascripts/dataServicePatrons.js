@@ -16,6 +16,10 @@ angular.module('app').service('dataServicePatrons', function($http) {
 		$http.put('/api/patrons/patronDetail/' + id, data).then(callback, err);
      };
 	 
+	vm.postNewPatron = function(data, callback, err) {
+		$http.post('/api/patrons/newPatron/', data).then(callback, err);
+     };
+	 
 });
 
 })();

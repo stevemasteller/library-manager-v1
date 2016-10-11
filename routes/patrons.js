@@ -40,12 +40,22 @@ router.put('/patronDetail/:id', function(req, res, next) {
 	patrons.findById(req.params.id)
 	.then(function(patron){
 		if(patron) {
-			console.log(patron);
 			return patron.update(req.body);
 		} else {
 			res.status(404).send(error);
 		}
 	})
+	.then(function (patron) {
+		res.json(patron);
+	})
+	.catch(function(error){
+		res.status(500).send(error);
+	});
+});
+
+/* Post new patron */
+router.post('/newPatron', function(req, res, next) {
+	patrons.create(req.body)
 	.then(function (patron) {
 		res.json(patron);
 	})

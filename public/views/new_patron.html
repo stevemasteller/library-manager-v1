@@ -10,14 +10,36 @@
 <body>
     <h1>New Patron</h1>
     <form>
-        <p> <label for="first_name">First Name</label><input id="first_name" type="text"></p>
-        <p> <label for="last_name">Last Name</label><input id="last_name" type="text"></p>
-        <p><label for="address"> Address</label><input id="address" type="text"></p>
-        <p><label for="email">Email</label><input id="email" type="text"></p>
-        <p> <label for="library_id">Library ID</label><input id="library_id" type="text"></p>
-        <p><label for="zip_code">Zip Code</label><input id="zip_code" type="text"></p>
-        <p><input type="submit" value="Create New Patron"></p>
-    </form>
+        <p> 
+			<label for="first_name">First Name</label>
+			<input id="first_name" type="text" ng-model="vm.patron.first_name"">
+		</p>
+        <p> 
+			<label for="last_name">Last Name</label>
+			<input id="last_name" type="text" ng-model="vm.patron.last_name">
+		</p>
+        <p>
+			<label for="address"> Address</label>
+			<input id="address" type="text" ng-model="vm.patron.address">
+		</p>
+        <p>
+			<label for="email">Email</label>
+			<input id="email" type="text" ng-model="vm.patron.email">
+		</p>
+        <p> 
+			<label for="library_id">Library ID</label>
+			<input id="library_id" type="text" ng-model="vm.patron.library_id">
+		</p>
+        <p>
+			<label for="zip_code">Zip Code</label>
+			<input id="zip_code" type="text" ng-model="vm.patron.zip_code">
+		</p>
+        <p>
+			<input type="submit" value="Create New Patron" ng-click="vm.postNewPatron()">
+		</p>
+		<p ng-if="vm.success">Success</p>
+		<p ng-if="vm.failure" ng-repeat="error in vm.errorMessages">{{error.message}}</p>
+   </form>
 </body>
 
 </html>
