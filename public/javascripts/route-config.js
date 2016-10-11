@@ -43,17 +43,17 @@
        .when('/all_loans.html', {
          controller: 'loanCtrl',
          controllerAs: 'vm',
-         templateUrl: 'views/all_loans.html'
+         templateUrl: 'views/loans.html'
        })
        .when('/overdue_loans.html', {
          controller: 'loanCtrl',
          controllerAs: 'vm',
-         templateUrl: 'views/overdue_loans.html'
+         templateUrl: 'views/loans.html'
        })
        .when('/checked_loans.html', {
          controller: 'loanCtrl',
          controllerAs: 'vm',
-         templateUrl: 'views/checked_loans.html'
+         templateUrl: 'views/loans.html'
        })
        .when('/new_loan.html', {
          controller: 'loanCtrl',

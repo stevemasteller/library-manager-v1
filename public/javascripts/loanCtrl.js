@@ -6,19 +6,22 @@ angular.module('app').controller('loanCtrl', function(dataServiceLoans, dataServ
 	var vm = this;
 	if ($location.$$path === '/all_loans.html') {
 		dataServiceLoans.getAllLoans(function(res) {
-			vm.getAllLoans = res.data;
+			vm.loans = res.data;
+			vm.title = 'Loans';
 		});
 	}
 	
 	if ($location.$$path === '/overdue_loans.html') {
 		dataServiceLoans.getOverdueLoans(function(res) {
-			vm.getOverdueLoans = res.data;
+			vm.loans = res.data;
+			vm.title = 'Overdue Loans';
 		});
 	}
 	
 	if ($location.$$path === '/checked_loans.html') {
 		dataServiceLoans.getCheckedLoans(function(res) {
-			vm.getCheckedLoans = res.data;
+			vm.loans = res.data;
+			vm.title = 'Checked Out Loans';
 		});
 	}
 	
