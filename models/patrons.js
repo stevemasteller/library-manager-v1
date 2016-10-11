@@ -1,4 +1,7 @@
+/** Model for SQLite patrons table */
+(function() {
 'use strict';
+
 module.exports = function(sequelize, DataTypes) {
   var patrons = sequelize.define('patrons', {
     id: {
@@ -8,31 +11,37 @@ module.exports = function(sequelize, DataTypes) {
     first_name: {
       type: DataTypes.STRING,
       allowNull: false,
+	  notEmpty: true,
     },
     last_name: {
       type: DataTypes.STRING,
       allowNull: false,
+	  notEmpty: true,
     },
     address: {
       type: DataTypes.STRING,
       allowNull: false,
+	  notEmpty: true,
     },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
+	  notEmpty: true,
       validate: {
         isEmail: {
-          msg: "Must use a valid email"
+          msg: "Valid email required"
         }
       }
     },
     library_id: {
       type: DataTypes.STRING,
       allowNull: false,
+	  notEmpty: true,
     },
     zip_code: {
       type: DataTypes.INTEGER,
       allowNull: false,
+	  notEmpty: true,
       validate: {
         isNumeric: {
           msg: "Zip code must be all numbers"
@@ -42,11 +51,12 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
         patrons.hasMany(models.loans, {foreignKey: 'patron_id'});
       }
     },
-    timestamps: false  // No timestamps
+    timestamps: false  
   });
   return patrons;
 };
+
+})();

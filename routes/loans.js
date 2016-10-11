@@ -53,7 +53,7 @@ router.get('/checkedLoans', function(req, res, next) {
 	});
 });
 
-/** Post new loan */
+/** Post/create new loan */
 router.post('/newLoan', function(req, res, next) {
 	loans.create(req.body)
 	.then(function (loan) {
@@ -64,7 +64,7 @@ router.post('/newLoan', function(req, res, next) {
 	});
 });
 
-/* Get loan based on loan id */
+/** Get loan based on loan id */
 router.get('/returnBook/:id', function(req, res, next) {
 	loans.findAll({
 		include: [{ model: books }, { model: patrons }],
@@ -78,7 +78,7 @@ router.get('/returnBook/:id', function(req, res, next) {
    });
 });
 
-/* put loan based on loan id*/
+/** put/update loan based on loan id*/
 router.put('/returnBook/:id', function(req, res, next) {
 	loans.findById(req.params.id)
 	.then(function(loan){

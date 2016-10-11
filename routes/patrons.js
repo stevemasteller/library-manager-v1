@@ -21,6 +21,17 @@ router.get('/allPatrons', function(req, res, next) {
 	});
 });
 
+/** Post/creat new patron */
+router.post('/newPatron', function(req, res, next) {
+	patrons.create(req.body)
+	.then(function (patron) {
+		res.json(patron);
+	})
+	.catch(function(error){
+		res.status(500).send(error);
+	});
+});
+
 /** get patron detail */
 router.get('/patronDetail/:id', function(req, res, next) {
 	patrons.findAll({ 
@@ -35,7 +46,7 @@ router.get('/patronDetail/:id', function(req, res, next) {
 	});
 });
 
-/** put patron detail */
+/** put/update patron detail */
 router.put('/patronDetail/:id', function(req, res, next) {
 	patrons.findById(req.params.id)
 	.then(function(patron){
@@ -45,17 +56,6 @@ router.put('/patronDetail/:id', function(req, res, next) {
 			res.status(404).send(error);
 		}
 	})
-	.then(function (patron) {
-		res.json(patron);
-	})
-	.catch(function(error){
-		res.status(500).send(error);
-	});
-});
-
-/* Post new patron */
-router.post('/newPatron', function(req, res, next) {
-	patrons.create(req.body)
 	.then(function (patron) {
 		res.json(patron);
 	})

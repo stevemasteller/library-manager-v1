@@ -10,6 +10,7 @@
 <body>
     <h1>New Patron</h1>
     <form>
+		<div ng-include="'views/partials/error.html'"></div>
         <p> 
 			<label for="first_name">First Name</label>
 			<input id="first_name" type="text" ng-model="vm.patron.first_name"">
@@ -37,8 +38,6 @@
         <p>
 			<input type="submit" value="Create New Patron" ng-click="vm.postNewPatron()">
 		</p>
-		<p ng-if="vm.success">Success</p>
-		<p ng-if="vm.failure" ng-repeat="error in vm.errorMessages">{{error.message}}</p>
    </form>
 </body>
 

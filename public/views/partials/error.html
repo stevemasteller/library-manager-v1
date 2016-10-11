@@ -1,0 +1,4 @@
+<h2 ng-if="vm.failure"  class="error">Oooops!</h2>
+<ul ng-if="vm.failure"  class="error">
+	<li ng-if="vm.failure" ng-repeat="error in vm.errorMessages">{{error.message}}</li>
+</ul>

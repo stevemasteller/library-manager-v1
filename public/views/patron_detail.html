@@ -10,6 +10,7 @@
 <body>
     <h1>Patron: {{vm.patrons.first_name}} {{vm.patrons.last_name}}</h1>
     <form>
+		<div ng-include="'views/partials/error.html'"></div>
         <p> <label for="first_name">First Name</label><input id="first_name" type="text" ng-model="vm.patrons.first_name"></p>
         <p> <label for="last_name">Last Name</label><input id="last_name" type="text" ng-model="vm.patrons.last_name"></p>
         <p><label for="address"> Address</label><input id="address" type="text" ng-model="vm.patrons.address"></p>
@@ -18,8 +19,7 @@
         <p><label for="zip_code">Zip Code</label><input id="zip_code" type="text" ng-model="vm.patrons.zip_code"></p>
         <p><input type="submit" value="Update" ng-click="vm.putPatronDetail()"></p>
     </form>
-	<p ng-if="vm.success">Success</p>
-	<p ng-if="vm.failure" ng-repeat="error in vm.errorMessages">    <h2>Loan History</h2>
+	<h2>Loan History</h2>
     <table>
         <thead>
             <tr>

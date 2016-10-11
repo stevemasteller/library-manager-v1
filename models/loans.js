@@ -1,4 +1,7 @@
+/** Model for SQLite loans table */
+(function() {
 'use strict';
+
 module.exports = function(sequelize, DataTypes) {
   var loans = sequelize.define('loans', {
     id: {
@@ -7,15 +10,18 @@ module.exports = function(sequelize, DataTypes) {
     },
     book_id: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+	  notEmpty: true,
     },
     patron_id: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+	  notEmpty: true,
     },
     loaned_on: {
       type: DataTypes.DATEONLY,
       allowNull: false,
+	  notEmpty: true,
       validate: {
         isDate: {
           msg: "Loaned on date is required of the format YYYY-MM-DD"
@@ -25,6 +31,7 @@ module.exports = function(sequelize, DataTypes) {
     return_by: {
       type: DataTypes.DATEONLY,
       allowNull: false,
+	  notEmpty: true,
       validate: {
         isDate: {
           msg: "Return by date is required of the format YYYY-MM-DD"
@@ -43,12 +50,13 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
         loans.belongsTo(models.patrons, {foreignKey: 'patron_id'});
         loans.belongsTo(models.books, {foreignKey: 'book_id'});
       }
     },
-    timestamps: false  // no timestamps
+    timestamps: false 
   });
   return loans;
 };
+
+})();

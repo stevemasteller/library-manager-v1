@@ -10,14 +10,13 @@
 <body>
     <h1>New Book</h1>
     <form>
+		<div ng-include="'views/partials/error.html'"></div>
         <p><label for="title">Title</label><input id="title" type="text" ng-model="vm.newBook.title"></p>
         <p><label for="author">Author</label><input id="author" type="text" ng-model="vm.newBook.author"></p>
         <p><label for="genre">Genre</label><input id="genre" type="text" ng-model="vm.newBook.genre"></p>
         <p><label for="first_published">First Published</label><input id="first_published" type="text" ng-model="vm.newBook.first_published"></p>
         <p><input type="submit" value="Create New Book" ng-click="vm.postNewBook()"></p>
     </form>
-	<p ng-if="vm.success">Success</p>
-	<p ng-if="vm.failure" ng-repeat="error in vm.errorMessages">{{error.message}}</p>
 </body>
 
 </html>

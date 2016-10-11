@@ -36,7 +36,7 @@ router.get('/overdueBooks', function(req, res, next) {
 	});
 });
 
-/** Get checked books */
+/** Get checked out books */
 router.get('/checkedBooks', function(req, res, next) {
 	loans.findAll({
 		include: [{ model: books }],
@@ -51,7 +51,7 @@ router.get('/checkedBooks', function(req, res, next) {
 	});
 });
 
-/** Post new book */
+/** Post/create new book */
 router.post('/newBook', function(req, res, next) {
 	books.create(req.body)
 	.then(function (book) {
@@ -62,6 +62,7 @@ router.post('/newBook', function(req, res, next) {
 	});
 });
 
+/** Get book details */
 router.get('/bookDetail/:id', function(req, res, next) {
 	books.findAll({ 
 		include: [{ model: loans, include: [{ model: patrons }] }], 
@@ -75,6 +76,7 @@ router.get('/bookDetail/:id', function(req, res, next) {
 	});
 });
 
+/** Put/update book details */
 router.put('/bookDetail/:id', function(req, res, next) {
 	books.findById(req.params.id)
 	.then(function(book){

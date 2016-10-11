@@ -1,4 +1,7 @@
+/** Model for SQLite books table */
+(function() {
 'use strict';
+
 module.exports = function(sequelize, DataTypes) {
   var books = sequelize.define('books', {
     id: {
@@ -8,28 +11,30 @@ module.exports = function(sequelize, DataTypes) {
     title: {
       type: DataTypes.STRING,
       allowNull: false,
+	  notEmpty: true,
     },
     author: {
       type: DataTypes.STRING,
       allowNull: false,
+	  notEmpty: true,
     },
     genre: {
       type: DataTypes.STRING,
       allowNull: false,
+	  notEmpty: true,
     },
     first_published: {
     type: DataTypes.INTEGER,
     allowNull: true,
     validate: {
       isNumeric: {
-        msg: "Year should be in integer format"
+        msg: "Year should be of the format YYYY"
       }
     }
   }
 }, {
     classMethods: {
       associate: function(models) {
-         //associations can be defined here
          books.hasMany(models.loans, {foreignKey: 'book_id'});
       }
     },
@@ -37,3 +42,5 @@ module.exports = function(sequelize, DataTypes) {
   });
   return books;
 };
+
+})();

@@ -10,6 +10,7 @@
 <body>
     <h1>New Loan</h1>
     <form>
+		<div ng-include="'views/partials/error.html'"></div>
         <p>
           <label for="book_id">Book: </label>
           <select ng-model="vm.loan.book_id" id="book_id" ng-options="book.id as book.title for book in vm.getAllBooks">
@@ -30,8 +31,6 @@
         <label for="return_by">Return by:</label><input id="return_by" type="text" ng-init="vm.loan.return_by=vm.returnDate" ng-model="vm.loan.return_by"></p>
         <p><input type="submit" value="Create New Loan" ng-click="vm.postNewLoan()"></p>
     </form>
-	<p ng-if="vm.success">Success</p>
-	<p ng-if="vm.failure" ng-repeat="error in vm.errorMessages">{{error.message}}</p>
 </body>
 
 </html>

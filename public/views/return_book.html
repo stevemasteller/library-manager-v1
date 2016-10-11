@@ -14,10 +14,9 @@
     <p><strong>Loaned On: </strong>{{vm.loan.loaned_on}}</p>
     <p><strong>Return By: </strong>{{vm.loan.return_by}}</p>
     <form>
+		<div ng-include="'views/partials/error.html'"></div>
         <p> <label for="returned_on">Returned on:</label><input id="returned_on" type="text" ng-model="vm.loan.returned_on"></p>
         <p><input type="submit" value="Return Book" ng-click="vm.putReturnBook()"></p>
     </form>
-	<p ng-if="vm.success">Success</p>
-	<p ng-if="vm.failure" ng-repeat="error in vm.errorMessages">{{error.message}}</body>
 
 </html>

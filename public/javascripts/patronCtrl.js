@@ -5,12 +5,35 @@ angular.module('app').controller('patronCtrl', function(dataServicePatrons, $loc
 	
 	var vm = this;
 	
+/**
+ * Control for all_patrons.html page.
+ */
+	 /** list all patrons */
 	if ($location.$$path === '/all_patrons.html') {
 		dataServicePatrons.getAllPatrons(function(res) {
 			vm.patrons = res.data;
 		});
 	}
 	
+/**
+ * Control for new_patron.html page.
+ */
+	/** create new patron */
+	vm.patron = {};
+	vm.postNewPatron = function() {
+		console.log('reached patronCtrl');
+		dataServicePatrons.postNewPatron(vm.patron, function(res) {
+			$location.path('/all_patrons.html');
+		}, function(error) {
+			vm.failure = true;
+			vm.errorMessages = error.data.errors;
+		});
+	};
+	 	
+/**
+ * Control for patron_detail.html page.
+ */
+	/** display patron details */
     vm.id = $routeParams.id;
 	if ($location.$$path === ('/patron_detail.html/' + vm.id)) {
 		vm.patron = {};
@@ -19,30 +42,16 @@ angular.module('app').controller('patronCtrl', function(dataServicePatrons, $loc
 		});
 	}
 	  
+	/** update patron details */
 	vm.putPatronDetail = function() {
 		dataServicePatrons.putPatronDetail(vm.id, vm.patrons, function(res) {
-			vm.success = true;
-			vm.failure = false;
+			$location.path('/all_patrons.html');
 		}, function(error) {
-			vm.success = false;
 			vm.failure = true;
 			vm.errorMessages = error.data.errors
 		});
 	};
 
-	vm.patron = {};
-	vm.postNewPatron = function() {
-		console.log('reached patronCtrl');
-		dataServicePatrons.postNewPatron(vm.patron, function(res) {
-			vm.success = true;
-			vm.failure = false;
-		}, function(error) {
-			vm.success = false;
-			vm.failure = true;
-			vm.errorMessages = error.data.errors;
-		});
-	};
-	 	
 });
 
 })();
