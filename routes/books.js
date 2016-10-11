@@ -88,7 +88,7 @@ router.put('/bookDetail/:id', function(req, res, next) {
 		res.json(book);
 	})
 	.catch(function(error){
-		res.send(500, error);
+		res.status(500).send(error);
 	});
 });
 

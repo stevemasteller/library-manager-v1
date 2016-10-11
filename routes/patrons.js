@@ -21,15 +21,32 @@ router.get('/allPatrons', function(req, res, next) {
 	});
 });
 
-	console.log('reached Router1');
 /** get patron detail */
 router.get('/patronDetail/:id', function(req, res, next) {
-	console.log('reached Router');
 	patrons.findAll({ 
 		include: [{ model: loans, include: [{ model: books }] }], 
 		where: { id: req.params.id }
 	})
 	.then(function(patron){
+		res.json(patron);
+	})
+	.catch(function(error){
+		res.status(500).send(error);
+	});
+});
+
+/** put patron detail */
+router.put('/patronDetail/:id', function(req, res, next) {
+	patrons.findById(req.params.id)
+	.then(function(patron){
+		if(patron) {
+			console.log(patron);
+			return patron.update(req.body);
+		} else {
+			res.status(404).send(error);
+		}
+	})
+	.then(function (patron) {
 		res.json(patron);
 	})
 	.catch(function(error){

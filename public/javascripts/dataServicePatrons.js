@@ -9,10 +9,13 @@ angular.module('app').service('dataServicePatrons', function($http) {
 	}
 	
 	vm.getPatronDetail = function(id, callback) {
-		console.log('reached dataServicePatrons');
 		$http.get('/api/patrons/patronDetail/' + id).then(callback);
 	}
 	
+	vm.putPatronDetail = function(id, data, callback, err) {
+		$http.put('/api/patrons/patronDetail/' + id, data).then(callback, err);
+     };
+	 
 });
 
 })();

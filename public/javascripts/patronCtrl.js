@@ -19,6 +19,17 @@ angular.module('app').controller('patronCtrl', function(dataServicePatrons, $loc
 		});
 	}
 	  
+	vm.putPatronDetail = function() {
+		dataServicePatrons.putPatronDetail(vm.id, vm.patrons, function(res) {
+			vm.success = true;
+			vm.failure = false;
+		}, function(error) {
+			vm.success = false;
+			vm.failure = true;
+			vm.errorMessages = error.data.errors
+		});
+	};
+
 });
 
 })();

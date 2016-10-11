@@ -53,7 +53,7 @@ angular.module('app').controller('bookCtrl', function(dataServiceBooks, $locatio
 	}
 	  
 	vm.putBookDetail = function() {
-		dataServiceBooks.putBookDetail(vm.id, vm.book, function(response) {
+		dataServiceBooks.putBookDetail(vm.id, vm.book, function(res) {
 			vm.success = true;
 			vm.failure = false;
 		}, function(error) {

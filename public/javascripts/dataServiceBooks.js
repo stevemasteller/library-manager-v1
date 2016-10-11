@@ -27,6 +27,7 @@ angular.module('app').service('dataServiceBooks', function($http) {
 	vm.putBookDetail = function(id, data, callback, err) {
 		$http.put('/api/books/bookDetail/' + id, data).then(callback, err);
      };
+	 
 });
 
 })();

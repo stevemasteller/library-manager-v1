@@ -16,9 +16,10 @@
         <p><label for="email">Email</label><input id="email" type="text" ng-model="vm.patrons.email"></p>
         <p> <label for="library_id">Library ID</label><input id="library_id" type="text" ng-model="vm.patrons.library_id"></p>
         <p><label for="zip_code">Zip Code</label><input id="zip_code" type="text" ng-model="vm.patrons.zip_code"></p>
-        <p><input type="submit" value="Update"></p>
+        <p><input type="submit" value="Update" ng-click="vm.putPatronDetail()"></p>
     </form>
-    <h2>Loan History</h2>
+	<p ng-if="vm.success">Success</p>
+	<p ng-if="vm.failure" ng-repeat="error in vm.errorMessages">    <h2>Loan History</h2>
     <table>
         <thead>
             <tr>
@@ -33,7 +34,7 @@
         <tbody>
             <tr ng-repeat="loan in vm.patrons.loans">
                 <td><a ng-href="#/book_detail.html/{{loan.book_id}}">{{loan.book.title}}</a></td>
-                <td><a ng-href="">{{vm.patrons.first_name}} {{vm.patrons.last_name}}</a></td>
+                <td><a ng-href="#/patron_detail.html/{{loan.patron_id}}">{{vm.patrons.first_name}} {{vm.patrons.last_name}}</a></td>
                 <td>{{loan.loaned_on}}</td>
                 <td>{{loan.return_by}}</td>
                 <td>{{loan.returned_on}}</td>
