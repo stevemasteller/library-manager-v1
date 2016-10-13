@@ -8,6 +8,7 @@ var loans        = require('./routes/loans');
 var patrons      = require('./routes/patrons');
 
 var app = express();
+var router = express.Router();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -29,5 +30,18 @@ app.get('/vendor/angular-route.js', function(req, res) {
 app.use('/api/books', books);
 app.use('/api/loans', loans);
 app.use('/api/patrons', patrons);
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
+// Placeholder error handler
+app.use(function(err, req, res, next) {
+  res.status(err.status);   
+  res.sendFile(__dirname + "/public/error.html");
+});
 
 module.exports = app;
