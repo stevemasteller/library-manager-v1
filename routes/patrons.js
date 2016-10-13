@@ -50,11 +50,7 @@ router.get('/patronDetail/:id', function(req, res, next) {
 router.put('/patronDetail/:id', function(req, res, next) {
 	patrons.findById(req.params.id)
 	.then(function(patron){
-		if(patron) {
-			return patron.update(req.body);
-		} else {
-			res.status(404).send(error);
-		}
+		return patron.update(req.body);
 	})
 	.then(function (patron) {
 		res.json(patron);

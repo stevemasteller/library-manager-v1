@@ -82,11 +82,7 @@ router.get('/returnBook/:id', function(req, res, next) {
 router.put('/returnBook/:id', function(req, res, next) {
 	loans.findById(req.params.id)
 	.then(function(loan){
-		if(loan) {
-			return loan.update(req.body);
-		} else {
-			res.status(404).send(error);
-		}
+		return loan.update(req.body);
 	})
 	.then(function (loan) {
 		res.json(loan);

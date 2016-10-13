@@ -80,11 +80,7 @@ router.get('/bookDetail/:id', function(req, res, next) {
 router.put('/bookDetail/:id', function(req, res, next) {
 	books.findById(req.params.id)
 	.then(function(book){
-		if(book) {
-			return book.update(req.body);
-		} else {
-			res.status(404).send(error);
-		}
+		return book.update(req.body);
 	})
 	.then(function (book) {
 		res.json(book);
