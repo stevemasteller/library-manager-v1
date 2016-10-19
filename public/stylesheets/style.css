@@ -99,6 +99,8 @@ ul.pagination li {
   padding-left: 7px;
 }
 
-.search-form {
-  margin-left: 35%;
+form.search-form {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  margin-left: -14px;
 }
