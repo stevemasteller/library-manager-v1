@@ -8,7 +8,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr dir-paginate = "loan in vm.loans | itemsPerPage: 10">
+            <tr dir-paginate="loan in vm.loans | itemsPerPage: 5">
                 <td><a href="#/book_detail.html/{{loan.book.id}}">{{loan.book.title}}</a></td>
                 <td>{{loan.book.author}}</td>
                 <td>{{loan.book.genre}}</td>
