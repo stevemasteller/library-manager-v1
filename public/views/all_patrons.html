@@ -10,7 +10,13 @@
 <body>
     <h1>Patrons</h1>
     <p> <a href="#/new_patron.html" class="button">Create New Patron</a></p>
-    <table>
+	<form class="search-form">
+		<div>
+			<label>Search</label>
+			<input type="text" ng-model="search" placeholer="Search">
+		</div>
+	</form>
+   <table>
         <thead>
             <tr>
                 <th>Name </th>
