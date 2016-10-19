@@ -1,5 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('app', ['ngRoute']);
+  // includes pagination module.
+  angular.module('app', ['ngRoute', 'angularUtils.directives.dirPagination']);
+  
 })();

@@ -92,3 +92,10 @@ input {
 input[type=text], select {
   margin-left: 10px;
 }
+
+ul.pagination li {
+  display: inline-block;
+  list-style: none;
+  padding-left: 7px;
+}
+

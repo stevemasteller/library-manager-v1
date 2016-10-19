@@ -8,7 +8,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat = "loan in vm.loans">
+            <tr dir-paginate = "loan in vm.loans | itemsPerPage: 10">
                 <td><a href="#/book_detail.html/{{loan.book.id}}">{{loan.book.title}}</a></td>
                 <td>{{loan.book.author}}</td>
                 <td>{{loan.book.genre}}</td>
@@ -16,3 +16,5 @@
             </tr>
         </tbody>
     </table>
+	<dir dir-pagination-controls></dir dir-pagination-controls>
+
