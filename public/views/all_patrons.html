@@ -21,7 +21,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="patron in vm.patrons">
+            <tr dir-paginate="patron in vm.patrons | itemsPerPage: 5 | filter: search">
                 <td><a ng-href="#/patron_detail.html/{{patron.id}}">{{patron.first_name}} {{patron.last_name}}</a></td>
                 <td>{{patron.address}}</td>
                 <td>{{patron.email}}</td>
@@ -30,6 +30,7 @@
             </tr>
         </tbody>
     </table>
+	<dir dir-pagination-controls></dir dir-pagination-controls>
 </body>
 
 </html>
