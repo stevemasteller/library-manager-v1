@@ -21,7 +21,6 @@ angular.module('app').controller('patronCtrl', function(dataServicePatrons, $loc
 	/** create new patron */
 	vm.patron = {};
 	vm.postNewPatron = function() {
-		console.log('reached patronCtrl');
 		dataServicePatrons.postNewPatron(vm.patron, function(res) {
 			$location.path('/all_patrons.html');
 		}, function(error) {
