@@ -31,12 +31,12 @@
         </thead>
         <tbody>
             <tr ng-repeat="loan in vm.book.loans">
-                <td><a href="#/book_detail.html/{{loan.book_id}}">{{vm.book.title}}</a></td>
-                <td><a href="#/patron_detail.html/{{loan.patron_id}}">{{loan.patron.first_name}} {{loan.patron.last_name}}</a></td>
+                <td><a href="#!/book_detail.html/{{loan.book_id}}">{{vm.book.title}}</a></td>
+                <td><a href="#!/patron_detail.html/{{loan.patron_id}}">{{loan.patron.first_name}} {{loan.patron.last_name}}</a></td>
                 <td>{{loan.loaned_on}}</td>
                 <td>{{loan.return_by}}</td>
                 <td>{{loan.returned_on}}</td>
-                <td><a ng-if="!loan.returned_on" href="#/return_book.html/{{loan.id}}" class="button">Return Book</a></td> 
+                <td><a ng-if="!loan.returned_on" href="#!/return_book.html/{{loan.id}}" class="button">Return Book</a></td> 
             </tr>
         </tbody>
     </table>
