@@ -1,0 +1,1 @@
+web: node ./bin/www localhost 3000
