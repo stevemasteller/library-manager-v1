@@ -1,1 +1,1 @@
-web: node ./bin/www localhost $PORT
+web: node ./bin/www
